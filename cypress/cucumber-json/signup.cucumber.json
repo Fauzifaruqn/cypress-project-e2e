@@ -1,0 +1,78 @@
+[
+  {
+    "description": "    This is scenario about Signup autobahn security web application",
+    "keyword": "Feature",
+    "name": "Signup",
+    "line": 1,
+    "id": "signup",
+    "tags": [],
+    "uri": "signup.feature",
+    "elements": [
+      {
+        "id": "signup;as-a-user-should-be-able-to-register-successfully",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "as a user should be able to register successfully",
+        "tags": [
+          {
+            "name": "@user_signup_succesfully",
+            "line": 5
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 11721000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "user register autobahn security with valid email and \"Strong\" password",
+            "result": {
+              "status": "passed",
+              "duration": 12505000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the user completes data in the personal data form",
+            "result": {
+              "status": "passed",
+              "duration": 4633000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "and the user needs to verify the account via email",
+            "result": {
+              "status": "passed",
+              "duration": 11560000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the user should be able to successfully login using the account that was created",
+            "result": {
+              "status": "passed",
+              "duration": 22186000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
