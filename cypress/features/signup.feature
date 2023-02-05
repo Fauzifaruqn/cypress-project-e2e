@@ -9,4 +9,3 @@ Feature: Signup
       And the user completes data in the personal data form
       And and the user needs to verify the account via email
       Then the user should be able to successfully login using the account that was created
-      

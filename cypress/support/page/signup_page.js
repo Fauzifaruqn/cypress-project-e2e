@@ -23,17 +23,22 @@ class SignUpPage {
     } 
 
     fillInFormDetail() {
-        this.elements.firstName().type('Burhan')
-        this.elements.lastName().type('Jaenudi')
-        this.elements.industry().should('be.visible').click()
-        this.elements.firstIndustry().should('be.visible').click()
-        this.elements.phoneNumberArrow().click()
-        // this.elements.listCountry().should('be.visible')
-        this.elements.indonesiaCodeNumber().scrollIntoView().click()
-        this.elements.phoneNumberField().type('813245638')
-        this.elements.btnStart().should('be.visible').click()
-        cy.wait(3000)
-        cy.get('#create-new-account-btn > .btn').should('be.visible').click()
+        cy.generateDataPersonal()
+        cy.wait(2000)
+        cy.fixture('data/personal_info.json').then((testdata) => {
+            this.elements.firstName().type(testdata['user'][0].first_name)
+            this.elements.lastName().type(testdata['user'][0].last_name)
+            this.elements.industry().should('be.visible').click()
+            this.elements.firstIndustry().should('be.visible').click()
+            this.elements.phoneNumberArrow().click()
+            // this.elements.listCountry().should('be.visible')
+            this.elements.indonesiaCodeNumber().scrollIntoView().click()
+            this.elements.phoneNumberField().type(testdata['user'][0].phone_number)
+            this.elements.btnStart().should('be.visible').click()
+
+            cy.wait(3000)
+            cy.get('#create-new-account-btn > .btn').should('be.visible').click()
+        })
     }
     
 }

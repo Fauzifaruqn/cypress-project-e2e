@@ -27,3 +27,18 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // cypress/support/commands.js
+
+
+Cypress.Commands.add("generateDataPersonal", () => {
+  const { faker } = require('@faker-js/faker');
+
+  cy.writeFile('cypress/fixtures/data/personal_info.json', {
+    'user': Cypress._.times(1, () => {
+      return {
+        'first_name': `${faker.name.firstName()}`,
+        'last_name': `${faker.name.lastName()}`,
+        'phone_number': `8${faker.random.numeric(8)}`
+      }
+    })
+  })
+})
