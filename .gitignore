@@ -106,3 +106,4 @@ dist
 cypress/videos
 cypress/screenshots
 cypress/reports/
+cypress/cucumber-report
