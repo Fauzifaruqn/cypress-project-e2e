@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v3
       - name: 'End To End Testing - Autobahn Security'
         if: always()
-        uses: cypress-io/github-action@v5.x.x
+        uses: cypress-io/github-action@v5
         with:
           install-command: yarn
           browser: chrome
