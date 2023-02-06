@@ -1,36 +1,38 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+name: RUN UI Automation
 
+# The workflow will run on Monday to Friday at 08:00 AEST (22:00 UTC)
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
-  build:
+  orangeHRM:
     runs-on: ubuntu-latest
+    container: cypress/browsers:node14.17.6-chrome100-ff98
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'End To End Testing - Autobahn Security'
+        if: always()
+        uses: cypress-io/github-action@v2
         with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
-
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+          install-command: yarn
+          browser: chrome
+          spec: cypress/features/*.feature
+      - name: Generate  Report
+        if: always()
+        run: npm run make-report
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v2
         with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          name: Artifact Report UI Automation
+          path: cypress/cucumber-report/
+       

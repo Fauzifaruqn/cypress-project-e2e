@@ -107,3 +107,4 @@ cypress/videos
 cypress/screenshots
 cypress/reports/
 cypress/cucumber-report
+cypress/cucumber-json/*.json
