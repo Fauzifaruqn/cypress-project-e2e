@@ -19,9 +19,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Clear Cypress Cache
-        run: npx cypress cache clear
-      - name: Checkout
       - name: 'End To End Testing - Autobahn Security'
         if: always()
         uses: cypress-io/github-action@v5
