@@ -15,7 +15,7 @@ permissions:
 jobs:
   endToEnd:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.16.0-chrome89-ff86
+    container: cypress/browsers:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
