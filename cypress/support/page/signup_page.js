@@ -11,14 +11,13 @@ class SignUpPage {
         listCountry: () => cy.xpath("//ul[contains(@id,'country-listbox')]"),
         indonesiaCodeNumber: () => cy.xpath("//li[contains(@data-dial-code,'62') and contains(@data-country-code,'id')]"),
         phoneNumberField: () => cy.xpath("//input[contains(@name,'phone-number')]"),
-        btnStart: () => cy.xpath("//a[contains(@class,'btn primary button-large active')]/p[contains(text(),'Start using Autobahn')]")
+        btnStart: () => cy.xpath("//a[contains(@class,'btn primary button-large active')]/p[contains(text(),'Start using Autobahn')]"),
+        btnSignupDisabled: () => cy.xpath("//div[contains(@class,'custom-button')]/descendant::a[contains(@class,'disabled')]")
     }
     fillInFormRegister(email,typePassword) {
         this.elements.emailField().should('be.visible').type(email)
         this.elements.passwordField().should('be.visible').type('StrongPassword!233')
         cy.get('.input-set.active').contains(typePassword)
-        // if(typePassword)
-        // cy.wait(500)
         this.elements.btnSignup().should('be.visible').click()
     } 
 
@@ -31,7 +30,6 @@ class SignUpPage {
             this.elements.industry().should('be.visible').click()
             this.elements.firstIndustry().should('be.visible').click()
             this.elements.phoneNumberArrow().click()
-            // this.elements.listCountry().should('be.visible')
             this.elements.indonesiaCodeNumber().scrollIntoView().click()
             this.elements.phoneNumberField().type(testdata['user'][0].phone_number)
             this.elements.btnStart().should('be.visible').click()
@@ -40,7 +38,11 @@ class SignUpPage {
             cy.get('#create-new-account-btn > .btn').should('be.visible').click()
         })
     }
-    
+
+    feedbackSuggestion(msg) {
+        cy.xpath(`//div[contains(@class,'feedback-suggestion')]/descendant::ul/li[not(contains(@class,'is-fulfilled')) and normalize-space(.)='${msg}']`).should('be.visible')
+    }
+
 }
 
 export default SignUpPage

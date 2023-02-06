@@ -17,6 +17,10 @@
           {
             "name": "@user_signup_succesfully",
             "line": 5
+          },
+          {
+            "name": "@positve_case",
+            "line": 5
           }
         ],
         "type": "scenario",
@@ -28,7 +32,7 @@
             "name": "user get email from email temporary website",
             "result": {
               "status": "passed",
-              "duration": 11311000000
+              "duration": 9823000000
             }
           },
           {
@@ -38,7 +42,7 @@
             "name": "user register autobahn security with valid email and \"Strong\" password",
             "result": {
               "status": "passed",
-              "duration": 11322000000
+              "duration": 8805000000
             }
           },
           {
@@ -48,7 +52,7 @@
             "name": "the user completes data in the personal data form",
             "result": {
               "status": "passed",
-              "duration": 6858000000
+              "duration": 8252000000
             }
           },
           {
@@ -58,7 +62,7 @@
             "name": "and the user needs to verify the account via email",
             "result": {
               "status": "passed",
-              "duration": 9188000000
+              "duration": 11251000000
             }
           },
           {
@@ -68,7 +72,396 @@
             "name": "the user should be able to successfully login using the account that was created",
             "result": {
               "status": "passed",
-              "duration": 27171000000
+              "duration": 19408000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "signup;as-a-user-should-not-be-able-to-register-with-invalid-email",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "as a user should not be able to register with invalid email",
+        "tags": [
+          {
+            "name": "@user_signup_failed_invalid_email",
+            "line": 13
+          },
+          {
+            "name": "@negative_case",
+            "line": 13
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 6559000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "user register autobahn security with invalid email",
+            "result": {
+              "status": "passed",
+              "duration": 4477000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "an error message will appear Must be a valid email",
+            "result": {
+              "status": "passed",
+              "duration": 32000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the signup button will be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "signup;as-a--user-cannot-register-if-using-a-password-that-is-less-than-8-characters",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "as a  user cannot register if using a password that is less than 8 characters",
+        "tags": [
+          {
+            "name": "@user_signup_failed_password_less_8_char",
+            "line": 20
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 22,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 8838000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "user register autobahn security with invalid password \"Fauzi1!\" need \"At least 8 characters\"",
+            "result": {
+              "status": "passed",
+              "duration": 5659000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "password will be considered as \"Weak\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the signup button will be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "signup;as-a--user-cannot-register-if-using-a-password-that-does-not-contain-uppercase",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "as a  user cannot register if using a password that does not contain uppercase",
+        "tags": [
+          {
+            "name": "@user_signup_failed_password_not_uppercase",
+            "line": 27
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 29,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 4511000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 30,
+            "name": "user register autobahn security with invalid password \"fauzi12!\" need \"One uppercase letter\"",
+            "result": {
+              "status": "passed",
+              "duration": 5376000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "password will be considered as \"Weak\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "the signup button will be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 22000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "signup;as-a--user-cannot-register-if-using-a-password-that-does-not-contain-lowercase",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "as a  user cannot register if using a password that does not contain lowercase",
+        "tags": [
+          {
+            "name": "@user_signup_failed_password_not_lowercase",
+            "line": 34
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 36,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 2419000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "user register autobahn security with invalid password \"FAUZI12!\" need \"One lowercase letter\"",
+            "result": {
+              "status": "passed",
+              "duration": 5359000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 38,
+            "name": "password will be considered as \"Weak\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "the signup button will be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 22000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "signup;as-a--user-cannot-register-if-using-a-password-that-does-not-contain-number",
+        "keyword": "Scenario",
+        "line": 42,
+        "name": "as a  user cannot register if using a password that does not contain number",
+        "tags": [
+          {
+            "name": "@user_signup_failed_password_not_number",
+            "line": 41
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 43,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 2558000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 44,
+            "name": "user register autobahn security with invalid password \"Fauzifn!\" need \"One number\"",
+            "result": {
+              "status": "passed",
+              "duration": 5661000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 45,
+            "name": "password will be considered as \"Weak\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "the signup button will be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 23000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "signup;as-a--user-cannot-register-if-using-a-password-that-does-not-contain-special-chracters",
+        "keyword": "Scenario",
+        "line": 49,
+        "name": "as a  user cannot register if using a password that does not contain special chracters",
+        "tags": [
+          {
+            "name": "@user_signup_failed_password_not_special_char",
+            "line": 48
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 50,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 2246000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 51,
+            "name": "user register autobahn security with invalid password \"Fauzifn1\" need \"One special character\"",
+            "result": {
+              "status": "passed",
+              "duration": 15759000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 52,
+            "name": "password will be considered as \"Weak\"",
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 53,
+            "name": "the signup button will be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "signup;as-a--user-cannot-register-if-using-a-password-that-does-contain-space",
+        "keyword": "Scenario",
+        "line": 56,
+        "name": "as a  user cannot register if using a password that does contain space",
+        "tags": [
+          {
+            "name": "@user_signup_failed_password_space",
+            "line": 55
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 57,
+            "name": "user get email from email temporary website",
+            "result": {
+              "status": "passed",
+              "duration": 2631000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 58,
+            "name": "user register autobahn security with invalid password \"fu 13!BA\" need \"No empty space\"",
+            "result": {
+              "status": "passed",
+              "duration": 15486000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 59,
+            "name": "password will be considered as \"Average\"",
+            "result": {
+              "status": "passed",
+              "duration": 7000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 60,
+            "name": "the signup button will be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
             }
           }
         ]

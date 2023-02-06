@@ -42,6 +42,25 @@ When(/^user register autobahn security with valid email and "(.*)" password$/, (
     cy.wait(3000)
 })
 
+When(/^user register autobahn security with invalid password "(.*)" need "(.*)"$/, (password,msg) => {
+    cy.visit('/signup');
+        
+    cy.contains('Start a free 14-day trial')
+    cy.wait(3000)
+    cy.get('@textElementValue').then((value) => {
+        signup.elements.emailField().type(value)
+        
+    });
+    signup.elements.passwordField().type(password)
+    cy.wait(500)
+    signup.feedbackSuggestion(msg)
+})
+
+Then(/^password will be considered as "(.*)"$/, (type) => {
+    cy.xpath(`//div[contains(@class,'bar-text') and text()='${type}']`)
+})
+
+
 And('the user completes data in the personal data form', () => {
     signup.fillInFormDetail()
 })
@@ -74,4 +93,22 @@ Then('the user should be able to successfully login using the account that was c
     cy.get('.custom-button').should('be.visible').click()
     cy.wait(10000)
     cy.get('#cyber-fitness').contains('Cyber Fitness')
+})
+
+
+When("user register autobahn security with invalid email", () => {
+    cy.visit('/signup');
+    cy.wait(3000)
+    cy.contains('Start a free 14-day trial')
+    signup.elements.emailField().type('fauzi.com {enter}')
+
+})
+
+
+Then('an error message will appear Must be a valid email', () => {
+    cy.contains('label.label', 'Must be a valid email')
+})
+
+And("the signup button will be disabled", () => {
+    signup.elements.btnSignupDisabled().should('be.visible').and('not.be.enabled')
 })
