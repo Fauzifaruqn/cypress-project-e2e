@@ -1,4 +1,4 @@
-# Autobahn Security - UI Automation
+# UI Automation
 ### Table of Contents
 - Installation
 - Implement Cucumber
